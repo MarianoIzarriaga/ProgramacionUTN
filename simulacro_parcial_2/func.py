@@ -87,12 +87,17 @@ def calcular_promedio(lista_pokemones:list,key:str,condicion:str):
         print(pokemon["nombre"])
     return lista_condicion
 
-def buscar(lista_pokemones:list):
+def buscar(lista_pokemones:list)->list:
     patron = input("Que desea buscar?")
     lista_patron = []
 
     for pokemon in lista_pokemones:
-        if(re.search(patron,pokemon["tipo"],re.IGNORECASE)):
-            lista_patron.append(pokemon["nombre"])
+        if(re.search(patron,str(pokemon["tipo"]),re.IGNORECASE)):
+            print(pokemon["nombre"])
     print(lista_patron)
     return lista_patron
+
+def exportar_csv(lista_pokemones:list,path:str):
+    with open(path,"w") as file:
+        for pokemon in lista_pokemones:
+            file.write("{0},{1},{2},{3},{4},{5}\n".format(pokemon["nombre"],pokemon["tipo"],pokemon["evoluciones"],pokemon["poder"],pokemon["fortaleza"],pokemon["debilidad"]))

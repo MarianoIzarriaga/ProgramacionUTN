@@ -37,7 +37,7 @@ def pokemon_app():
         elif(respuesta == "5"):
             func.buscar(lista_pokemon)
         elif(respuesta == "6"):
-           pass
+           func.exportar_csv(lista_pokemon,r"C:\Users\maria\Documents\Programacion_UTN\ProgramacionUTN\simulacro_parcial_2\pokemon.csv")
         elif(respuesta == "7"):
             break
 
